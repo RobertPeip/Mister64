@@ -259,7 +259,7 @@ parameter CONF_STR = {
    "O[2],Error Overlay,Off,On;",
    "O[28],FPS Overlay,Off,On;",
    "O[8:7],Stereo Mix,None,25%,50%,100%;",
-	"O[47:46],Aspect Ratio,4:3,16:9,Full;",
+	"O[47:46],Aspect Ratio,4:3,16:9,Full Screen;",
    "O[45:44],Crop Bottom,None,8,16,24;",
    "-;",
    
