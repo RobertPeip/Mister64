@@ -23,6 +23,7 @@ entity VI is
       second_ena       : out std_logic := '0';
       
       ISPAL            : in  std_logic;
+		ASPECTRATIO      : in  unsigned(1 downto 0);
       CROPBOTTOM       : in  unsigned(1 downto 0);
       VI_BILINEAROFF   : in  std_logic;
       VI_GAMMAOFF      : in  std_logic;
@@ -332,7 +333,8 @@ begin
       ce                               => ce,
       reset_1x                         => reset_1x,
             
-      ISPAL                            => ISPAL,        
+      ISPAL                            => ISPAL,
+		ASPECTRATIO                      => ASPECTRATIO,
       CROPBOTTOM                       => CROPBOTTOM,
       VI_BILINEAROFF                   => VI_BILINEAROFF,
       VI_GAMMAOFF                      => VI_GAMMAOFF,

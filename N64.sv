@@ -189,8 +189,8 @@ assign {UART_RTS, UART_TXD, UART_DTR} = 0;
 assign {SD_SCK, SD_MOSI, SD_CS} = 'Z;
 assign {SDRAM_DQ, SDRAM_A, SDRAM_BA, SDRAM_CLK, SDRAM_CKE, SDRAM_DQML, SDRAM_DQMH, SDRAM_nWE, SDRAM_nCAS, SDRAM_nRAS, SDRAM_nCS} = 'Z;
 
-assign VIDEO_ARX = 12'd4;
-assign VIDEO_ARY = 12'd3;
+assign VIDEO_ARX = (status[47:46] == 0) ? 12'd4 : (status[47:46] == 1) ? 12'd16 : status[19:18] - 1'd1;
+assign VIDEO_ARY = (status[47:46] == 0) ? 12'd3 : (status[47:46] == 1) ? 12'd9 : 12'd0;
 
 ///////////////////////  CLOCK/RESET  ///////////////////////////////////
 
@@ -259,6 +259,7 @@ parameter CONF_STR = {
    "O[2],Error Overlay,Off,On;",
    "O[28],FPS Overlay,Off,On;",
    "O[8:7],Stereo Mix,None,25%,50%,100%;",
+	"O[47:46],Aspect Ratio,4:3,16:9,Full;",
    "O[45:44],Crop Bottom,None,8,16,24;",
    "-;",
    
@@ -601,6 +602,7 @@ n64top
    .fpscountOn(status[28]),
    
    .ISPAL(status[79]),
+	.ASPECTRATIO(status[47:46]),
    .CROPBOTTOM(status[45:44]),
    .VI_BILINEAROFF(status[32]),
    .VI_GAMMAOFF(status[33]),

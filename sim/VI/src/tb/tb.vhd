@@ -147,6 +147,7 @@ begin
       reset_1x             => reset_out, 
       
       ISPAL                => '0',
+      ASPECTRATIO          => "00",
       CROPBOTTOM           => "00",
       VI_BILINEAROFF       => '0',
       

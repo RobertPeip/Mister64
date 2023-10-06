@@ -11,6 +11,7 @@ package pVI is
       VI_WIDTH        : unsigned(11 downto 0);
       isPAL           : std_logic;
       videoSizeY      : unsigned(9 downto 0);
+		aspectRatio     : unsigned(1 downto 0);
       cropBottom      : unsigned(1 downto 0);
    end record;
    

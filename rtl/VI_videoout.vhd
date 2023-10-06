@@ -20,6 +20,7 @@ entity VI_videoout is
       reset_1x                         : in  std_logic;
                   
       ISPAL                            : in  std_logic;
+		ASPECTRATIO                      : in  unsigned(1 downto 0);
       CROPBOTTOM                       : in  unsigned(1 downto 0);
       VI_BILINEAROFF                   : in  std_logic;
       VI_GAMMAOFF                      : in  std_logic;
@@ -198,7 +199,8 @@ begin
    videoout_settings.VI_WIDTH       <= VI_WIDTH;
    videoout_settings.isPAL          <= ISPAL;
    videoout_settings.videoSizeY     <= VI_V_VIDEO_END - VI_V_VIDEO_START - to_integer(videoout_settings.cropBottom & "0000");
-   videoout_settings.cropBottom     <= CROPBOTTOM;
+   videoout_settings.aspectRatio    <= ASPECTRATIO;
+	videoout_settings.cropBottom     <= CROPBOTTOM;
    
    newLine    <= videoout_reports.newLine;
    VI_CURRENT <= videoout_reports.VI_CURRENT & '0'; -- todo: need to find when interlace sets bit 0, can't be instant, otherwise Kroms CPU tests would hang in infinite loop  

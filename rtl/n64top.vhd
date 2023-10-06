@@ -25,6 +25,7 @@ entity n64top is
       fpscountOn              : in  std_logic;
       
       ISPAL                   : in  std_logic;
+		ASPECTRATIO             : in  unsigned(1 downto 0);
       CROPBOTTOM              : in  unsigned(1 downto 0);
       VI_BILINEAROFF          : in  std_logic;
       VI_GAMMAOFF             : in  std_logic;
@@ -716,6 +717,7 @@ begin
       second_ena           => second_ena,
       
       ISPAL                => ISPAL,
+		ASPECTRATIO          => ASPECTRATIO,
       CROPBOTTOM           => CROPBOTTOM,
       VI_BILINEAROFF       => VI_BILINEAROFF,
       VI_GAMMAOFF          => VI_GAMMAOFF,
